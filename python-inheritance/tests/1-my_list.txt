@@ -1,0 +1,19 @@
+#!/usr/bin/python3
+"""
+Doctest for MyList class (task 1)
+
+>>> MyList = __import__('1-my_list').MyList
+>>> my_list = MyList()
+>>> my_list.append(4)
+>>> my_list.append(1)
+>>> my_list.append(3)
+>>> my_list.append(2)
+>>> import sys
+>>> from io import StringIO
+>>> old_stdout = sys.stdout
+>>> sys.stdout = mystdout = StringIO()
+>>> my_list.print_sorted()
+>>> sys.stdout = old_stdout
+>>> mystdout.getvalue()
+'[1, 2, 3, 4]\\n'
+"""
