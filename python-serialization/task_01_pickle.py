@@ -1,11 +1,11 @@
 #!/usr/bin/python3
-""" Pickling Custom Classes """
+"""Task 01 - Pickling Custom Classes"""
 
 import pickle
 
 
 class CustomObject:
-    """A simple custom class to demonstrate pickling."""
+    """A custom object that can be serialized with pickle."""
 
     def __init__(self, name, age, is_student):
         self.name = name
@@ -16,24 +16,24 @@ class CustomObject:
         """Print the attributes of the object."""
         print(f"Name: {self.name}")
         print(f"Age: {self.age}")
-        print(f"Is Student: {self.is_student}")
+        print(f'Is Student: {self.is_student}')
 
     def serialize(self, filename):
-        """Serialize the current object to a file using pickle."""
+        """Serialize the current instance to a file."""
         try:
             with open(filename, 'wb') as f:
                 pickle.dump(self, f)
-        except (FileNotFoundError, pickle.PickleError):
+        except Exception:
+            # Return None on error (fail silently)
             return None
 
     @classmethod
     def deserialize(cls, filename):
-        """Deserialize an object from a file using pickle."""
+        """Deserialize an instance from a file."""
         try:
             with open(filename, 'rb') as f:
                 obj = pickle.load(f)
-                if isinstance(obj, cls):
-                    return obj
-                return None
-        except (FileNotFoundError, pickle.PickleError):
+            return obj
+        except Exception:
+            # Return None if file does not exist or is corrupted
             return None
