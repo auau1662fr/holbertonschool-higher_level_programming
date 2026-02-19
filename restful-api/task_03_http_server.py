@@ -6,6 +6,8 @@ import json
 
 
 PORT = 8000
+
+
 class MyHandler(http.server.BaseHTTPRequestHandler):
     def do_GET(self):
         if self.path == "/":
@@ -40,6 +42,7 @@ class MyHandler(http.server.BaseHTTPRequestHandler):
                 "error": "Endpoint not found"
             }"""
             self.wfile.write(b"404 Not Found")
+
 
 Handler = MyHandler
 
