@@ -1,4 +1,4 @@
-#!/home/sens003/root/holbertonschool-higher_level_programming/python-server_side_rendering/venv/bin/python3
+#!/home/auric/root/holbertonschool-higher_level_programming/python-server_side_rendering/venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys
