@@ -1,5 +1,5 @@
-#!/usr/bin/python3
-"""Prints the first State object from the database"""
+#!/usr/bin/env python3
+"""Prints the first State object from the database."""
 
 import sys
 from sqlalchemy import create_engine
@@ -10,7 +10,9 @@ from model_state import Base, State
 if __name__ == "__main__":
     engine = create_engine(
         "mysql+mysqldb://{}:{}@localhost:3306/{}".format(
-            sys.argv[1], sys.argv[2], sys.argv[3]
+            sys.argv[1],
+            sys.argv[2],
+            sys.argv[3]
         ),
         pool_pre_ping=True
     )
@@ -20,9 +22,9 @@ if __name__ == "__main__":
 
     state = session.query(State).order_by(State.id).first()
 
-    if state is None:
-        print("Nothing")
+    if state is not None:
+        print("{}: {}".format(state.id, state.name))
     else:
-        print(f"{state.id}: {state.name}")
+        print("Nothing")
 
     session.close()
